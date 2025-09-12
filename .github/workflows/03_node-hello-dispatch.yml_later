@@ -1,5 +1,5 @@
     # .github/workflows/node-hello.yml
-    name: Node.js Hello World
+    name: Node.js Hello World with dispatch
 
     on:
         workflow_dispatch:
