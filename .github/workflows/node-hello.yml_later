@@ -18,7 +18,8 @@
           with:
             node-version: '23.x' # Or your desired Node.js version
         - name: Run Hello World script
-          run:  cd hello-nodejs-actions &&node index.js
+          run: node index.js
+         # run:  cd hello-nodejs-actions && node index.js
 
       success:
         runs-on: ubuntu-latest
