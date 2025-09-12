@@ -1,2 +1,2 @@
 const args = process.argv.slice(2);
-console.log(`Hello, ${args.join(" ") || "World"}!`);
+console.log(`Hello, ${args.join(" ")}!`);
