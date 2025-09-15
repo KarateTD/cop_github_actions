@@ -4,7 +4,7 @@
     on:
         workflow_dispatch:
             inputs:
-                name:
+                greetee:
                     description: 'Name to greet'
                     required: true
                     default: 'World'
@@ -17,12 +17,12 @@
                   uses: actions/checkout@v4
 
                 - name: Set up Node.js
-                  uses: actions/setup-node@v15
+                  uses: actions/setup-node@v5
                   with:
                       node-version: '23.x'
                       
                 - name: Print greeting
-                  run: cd hello-nodejs-actions && node hello_with_args.js ${{ github.event.inputs.name }}
+                  run: cd hello-nodejs-actions && node hello_with_args.js ${{ github.event.inputs.greetee }}
 
         success:
             runs-on: ubuntu-latest
