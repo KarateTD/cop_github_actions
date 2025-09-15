@@ -22,7 +22,7 @@
                       node-version: '23.x'
                       
                 - name: Print greeting
-                  run: cd hello-nodejs-actions && node hello_with_args.js ${{ github.event.inputs.name }}
+                  run: node hello_with_args.js ${{ github.event.inputs.name }}
 
         success:
             runs-on: ubuntu-latest
