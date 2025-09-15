@@ -11,7 +11,7 @@
 
     jobs:
         greet:
-            runs-on: ubuntu-latest
+            runs-on: ubuntu
             steps:
                 - name: Checkout code
                   uses: actions/checkout@v4
@@ -20,9 +20,9 @@
                   uses: actions/setup-node@v4
                   with:
                       node-version: '23.x'
-
+                      
                 - name: Print greeting
-                  run: node hello_with_args.js ${{ github.event.inputs.name }}
+                  run: cd hello-nodejs-actions && node hello_with_args.js ${{ github.event.inputs.name }}
 
         success:
             runs-on: ubuntu-latest
