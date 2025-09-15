@@ -1,5 +1,5 @@
     # .github/workflows/node-hello.yml
-    name: Node.js Hello World with dispatch
+    name: 3. Node.js Hello World with dispatch
 
     on:
         workflow_dispatch:
@@ -15,9 +15,19 @@
             steps:
                 - name: Checkout code
                   uses: actions/checkout@v4
+
                 - name: Set up Node.js
                   uses: actions/setup-node@v4
                   with:
                       node-version: '23.x'
+                      
                 - name: Print greeting
                   run: cd hello-nodejs-actions && node hello_with_args.js ${{ github.event.inputs.name }}
+
+        success:
+            runs-on: ubuntu-latest
+            needs: greet
+
+            steps:
+            - name: Success Message
+              run: echo "Build and Hello World script ran successfully!"
