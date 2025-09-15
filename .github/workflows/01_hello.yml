@@ -1,4 +1,4 @@
-name: Hello World Workflow
+name: 1. Hello World Workflow
 on: [push]
 
 jobs:
