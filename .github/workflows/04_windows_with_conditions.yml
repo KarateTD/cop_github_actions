@@ -34,7 +34,7 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v5
 
-            - name: Run PowerShell script for Dev
+            - name: Run PowerShell script for Staging
               shell: pwsh
               run: |
                 Write-Host "Lights, Camera, Action! Time to stage this code!"
@@ -46,7 +46,7 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v5
 
-            - name: Run PowerShell script for Dev
+            - name: Run PowerShell script for Testing
               shell: pwsh
               run: |
                 Write-Host "Don't you test me!"
@@ -58,7 +58,18 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v5
 
-            - name: Run PowerShell script for Dev
+            - name: Run PowerShell script for Production
               shell: pwsh
               run: |
                 Write-Host "This is it! The big leagues! Time to make this code live!"
+
+    regular_job:
+        runs-on: windows-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v5
+
+            - name: Run PowerShell script for Regular Job
+              shell: pwsh
+              run: |
+                Write-Host "This job runs regardless of the environment!"
