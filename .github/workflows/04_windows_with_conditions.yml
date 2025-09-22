@@ -1,0 +1,64 @@
+name: 4. Windows with Conditions
+
+on:
+    workflow_dispatch:
+        inputs:
+            my_env:
+                description: 'Environment'
+                required: true
+                default: 'dev'
+                type: choice
+                options:
+                    - dev
+                    - staging
+                    - testing
+                    - prod
+
+jobs:
+    dev_env:
+        if: ${{ github.event.inputs.my_env == 'dev' }}
+        runs-on: windows-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v5
+
+            - name: Run PowerShell script for Dev
+              shell: pwsh
+              run: |
+                Write-Host "What am I? A butterfly? Go Develop some code!"
+
+    staging_env:
+        if: ${{ github.event.inputs.my_env == 'staging' }}
+        runs-on: windows-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v5
+
+            - name: Run PowerShell script for Dev
+              shell: pwsh
+              run: |
+                Write-Host "Lights, Camera, Action! Time to stage this code!"
+
+    testing_env:
+        if: ${{ github.event.inputs.my_env == 'testing' }}
+        runs-on: windows-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v5
+
+            - name: Run PowerShell script for Dev
+              shell: pwsh
+              run: |
+                Write-Host "Don't you test me!"
+
+    prod_env:
+        if: ${{ github.event.inputs.my_env == 'prod' }}
+        runs-on: windows-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v5
+
+            - name: Run PowerShell script for Dev
+              shell: pwsh
+              run: |
+                Write-Host "This is it! The big leagues! Time to make this code live!"
