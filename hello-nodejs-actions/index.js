@@ -1,1 +1,1 @@
-console.log("Hello from DocMe360! Let's Go!");
+console.log("Hello from DocMe360!");
