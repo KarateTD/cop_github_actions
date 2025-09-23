@@ -25,7 +25,7 @@ jobs:
             - name: Run PowerShell script for Dev
               shell: pwsh
               run: |
-                Write-Host "What am I? A butterfly? Go Develop some code!"
+                Write-Host "What am I? A caterpillar? Go Develop some code!"
 
     staging_env:
         if: ${{ github.event.inputs.my_env == 'staging' }}
