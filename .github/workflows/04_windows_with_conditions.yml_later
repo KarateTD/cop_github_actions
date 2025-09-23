@@ -64,12 +64,7 @@ jobs:
                 Write-Host "This is it! The big leagues! Time to make this code live!"
 
     regular_job:
-        runs-on: windows-latest
+        runs-on: ubuntu-latest
         steps:
-            - name: Checkout code
-              uses: actions/checkout@v5
-
-            - name: Run PowerShell script for Regular Job
-              shell: pwsh
-              run: |
-                Write-Host "This job runs regardless of the environment!"
+            - name: Run Linux for Regular Job
+              run: echo "This job runs regardless of the environment!"
