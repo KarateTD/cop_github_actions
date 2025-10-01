@@ -17,9 +17,6 @@ jobs:
         if : ${{ github.event.inputs.os == 'ubuntu-latest' }}
         runs-on: ${{ github.event.inputs.os }}
         steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
-
             - name: Print OS
               run: echo "Running on ${{ github.event.inputs.os }}" && cat /etc/os-release
 
@@ -27,11 +24,15 @@ jobs:
         if : ${{ github.event.inputs.os == 'windows-latest' }}
         runs-on: ${{ github.event.inputs.os }}
         steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
-
             - name: Print OS
               shell: pwsh
               run: |
-                Write-Host "What am I? A caterpillar? Go Develop some code!"
+                Write-Host "Running on ${{ github.event.inputs.os }}"
                 Get-ComputerInfo
+
+    macos_job:
+        if : ${{ github.event.inputs.os == 'macos-latest' }}
+        runs-on: ${{ github.event.inputs.os }}
+        steps:
+            - name: Print OS
+              run: echo "Running on ${{ github.event.inputs.os }}" && sw_vers
