@@ -1,0 +1,24 @@
+name: 5. Challenge Workflow
+on:
+    workflow_dispatch:
+        inputs:
+            os:
+                description: "Choose your OS"
+                required: true
+                default: "ubuntu-latest"
+                type: choice
+                options:
+                    - ubuntu-latest
+                    - windows-latest
+                    - macos-latest
+
+jobs:
+    build:
+        if : ${{ github.event.inputs.os == 'ubuntu-latest' }}
+        runs-on: ${{ github.event.inputs.os }}
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Print OS
+              run: echo "Running on ${{ github.event.inputs.os }}" && cat /etc/os-release
