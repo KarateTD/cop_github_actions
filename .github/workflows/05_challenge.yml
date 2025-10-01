@@ -36,3 +36,11 @@ jobs:
         steps:
             - name: Print OS
               run: echo "Running on ${{ github.event.inputs.os }}" && sw_vers
+
+
+    finish:
+        needs: [linux_job, windows_job, macos_job]
+        runs-on: ubuntu-latest
+        steps:
+            - name: Final Step
+              run: echo "All done with ${{ github.event.inputs.os }}!"
