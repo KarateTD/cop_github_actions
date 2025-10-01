@@ -40,7 +40,7 @@ jobs:
 
     finish:
         needs: [linux_job, windows_job, macos_job]
-        if: (( needs.linux_job.result == 'success' || needs.windows_job.result == 'success' || needs.macos_job.result == 'success' ))
+        if: ( ${{ always() }} && ( needs.linux_job.result == 'success' || needs.windows_job.result == 'success' || needs.macos_job.result == 'success' ))
         runs-on: ubuntu-latest
         steps:
             - name: Final Step
