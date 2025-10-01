@@ -31,4 +31,7 @@ jobs:
               uses: actions/checkout@v4
 
             - name: Print OS
-              run: echo "Running on ${{ github.event.inputs.os }}" && systeminfo
+              shell: pwsh
+              run: |
+                Write-Host "What am I? A caterpillar? Go Develop some code!"
+                Get-ComputerInfo
