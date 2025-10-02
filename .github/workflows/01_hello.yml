@@ -9,4 +9,4 @@ jobs:
         uses: actions/checkout@v4
         
       - name: Print greeting
-        run: echo "Hello, Github Actions from DocMe360!"
+        run: echo "Hello, Github Actions!"
